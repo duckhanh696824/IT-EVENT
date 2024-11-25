@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University Events</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f3f4f6;
+        color: #333;
+      }
+
+      /* Hero section with background images rotation */
+      .hero-section {
+        position: relative;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        overflow: hidden;
+        text-align: center;
+        background-size: cover;
+        background-position: center;
+        animation: backgroundSlide 24s infinite;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 150px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        right: 0;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      .dropdown-menu a {
+        display: block;
+        padding: 10px;
+        color: #333;
+        text-decoration: none;
+        border-bottom: 1px solid #f3f4f6;
+      }
+
+      .dropdown-menu a:hover {
+        background-color: #f3f4f6;
+      }
+
+      /* Background images rotation with 4 images */
+      @keyframes backgroundSlide {
+        0% {
+          background-image: url("/assets/images/home/image1.png");
+        }
+        25% {
+          background-image: url("/assets/images/home/image2.jpg");
+        }
+        50% {
+          background-image: url("/assets/images/home/image3.jpg");
+        }
+        75% {
+          background-image: url("/assets/images/home//images.jpg");
+        }
+        100% {
+          background-image: url("/assets/images/home/image2.jpg");
+        }
+      }
+
+      footer {
+        background: #1a73e8;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="bg-gray-900 py-5 shadow-lg">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center">
+          <img
+            src="/assets/images/home/HUTECH-300x85.png"
+            alt="University Logo"
+            class="h-12 mr-4"
+          />
+          <!-- <h1 class="text-2xl font-semibold text-white">Hutech Events</h1> -->
+        </div>
+        <nav>
+          <ul class="flex space-x-6 text-white">
+            <li>
+              <a href="#" class="hover:text-gray-200 font-medium">Home</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-200 font-medium">Events</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-200 font-medium">About</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-200 font-medium">Contact</a>
+            </li>
+
+
+            <li id="register-buttons" class="auth-button">
+              <a
+                href="#"
+                class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium"
+                >Register</a
+              >
+            </li>
+            <li id="login-buttons" class="auth-button">
+              <a
+                href="#"
+                class="border border-white hover:bg-white hover:text-gray-900 px-4 py-2 rounded-lg font-medium"
+                >Login</a
+              >
+              <span id="dropdown-username" style="display: none;">Hi, </span>
+            </li>
+            <!-- <li id="dropdown-username" style="display: none;">
+              <div >
+                <span></span>
+              </div>
+            </li> -->
+            <li>
+              <div id="dropdown-template" style="display: none;">
+                <div class="relative">
+                  <button
+                    id="user-menu"
+                    class="flex items-center space-x-2 bg-gray-800 text-white px-4 py-2 rounded-lg"
+                  >
+                    <img
+                      src="/assets/images/avatar-placeholder.png"
+                      alt="User Avatar"
+                      class="w-8 h-8 rounded-full"
+                      id="user-avatar"
+                    />
+                    <span id="user-name">Username</span>
+                  </button>
+                  <div
+                    class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2"
+                    id="dropdown-menu"
+                  >
+                    <a
+                      href="/profile"
+                      class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                      >Thông tin cá nhân</a
+                    >
+                    <a
+                      href="#"
+                      id="logout-btn"
+                      class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                      >Đăng xuất</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section with Background Slideshow -->
+    <section class="hero-section">
+      <div>
+        <h2 class="text-4xl font-bold mb-4">
+          Discover Amazing University Events
+        </h2>
+        <!-- Search Bar -->
+        <div class="flex justify-center items-center mb-6">
+          <input
+            type="text"
+            placeholder="Search for events..."
+            class="w-full max-w-lg px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:border-blue-500"
+          />
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white px-6 py-2 rounded-r-lg"
+          >
+            Search
+          </button>
+        </div>
+        <a
+          href="#"
+          class="bg-blue-500 hover:bg-blue-700 text-white px-8 py-3 rounded-lg shadow-lg text-lg font-medium inline-block"
+          >Explore Events</a
+        >
+      </div>
+    </section>
+
+    <!-- Main Section -->
+    <main class="mt-10 px-4 lg:px-0">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">
+          Welcome to University Events
+        </h2>
+        <p class="text-gray-600 mb-6">
+          Stay updated with the latest university events, webinars, and tech
+          conferences.
+        </p>
+      </div>
+    </main>
+
+    <footer class="py-12 mt-10">
+      <div
+        class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 text-center lg:text-left text-white"
+      >
+        <div>
+          <img
+            src="/assets/images/home/HUTECH-300x85.png"
+            alt="University Logo"
+            class="h-20 mx-auto lg:mx-0 mb-4"
+          />
+          <p>&copy; 2024 Hutech Events. All rights reserved.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Resources</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="hover:text-gray-300">Event Guidelines</a>
+            </li>
+            <li><a href="#" class="hover:text-gray-300">Scholarships</a></li>
+            <li><a href="#" class="hover:text-gray-300">Campus Map</a></li>
+            <li><a href="#" class="hover:text-gray-300">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+          <div class="flex justify-center lg:justify-start space-x-4">
+            <a href="#" class="hover:text-gray-300"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="hover:text-gray-300"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="hover:text-gray-300"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="hover:text-gray-300"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="/dist/js/user/home.js"></script>
+  </body>
+</html>
